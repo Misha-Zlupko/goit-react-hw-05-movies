@@ -1,11 +1,8 @@
-import { Outlet, link, NavLink, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { GetFetchFilmByName } from 'components/Server/Server';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
-import { MovieDetails } from '../MovieDetails/MovieDetails';
-import { Cast } from 'components/Cast/Cast';
-import { Reviews } from 'components/Reviews/Reviews';
+import { Routes } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);

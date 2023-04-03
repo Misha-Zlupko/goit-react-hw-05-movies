@@ -1,4 +1,3 @@
-import { logDOM } from '@testing-library/react';
 import axios from 'axios';
 const KEY = `465b4aa22561626299c60e60f8601e8f`;
 const URL_TRENDING = `https://api.themoviedb.org/3/trending/all/day?`;

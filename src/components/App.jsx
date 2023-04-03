@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 // import { Home } from './Home/Home';
 // import { Movies } from './Movies/Movies';

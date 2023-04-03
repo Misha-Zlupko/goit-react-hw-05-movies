@@ -1,14 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
-// import { GetFilmTrending } from '../Server/Server';
+import { Link } from 'react-router-dom';
 import { GetFilmTrending } from '../Server/Server';
 import { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { MovieDetails } from '../MovieDetails/MovieDetails';
-import { Cast } from '../Cast/Cast';
-import { Reviews } from '../Reviews/Reviews';
 
 const Home = () => {
-  // const location = useLocation();
   const [filmsName, setFilmsName] = useState([]);
   useEffect(() => {
     GetFilmTrending().then(data => {
@@ -30,12 +24,6 @@ const Home = () => {
           </li>
         ))}
       </ul>
-      {/* <Routes>
-        {/* <Route path="/movies/:movieId" element={<MovieDetails />}> */}
-      {/* <Route path="/cast" element={<Cast />} /> */}
-      {/* <Route path="/reviews" element={<Reviews />} /> */}
-      {/* </Route> */}
-      {/* </Routes> */}
     </div>
   );
 };
