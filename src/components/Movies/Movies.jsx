@@ -6,42 +6,36 @@ import { Routes } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  // const [search, setSearch] = useState('');
+  const [query, setQuery] = useState('');
   const location = useLocation();
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
+  console.log(query);
+  console.log(movies);
   useEffect(() => {
-    GetFetchFilmByName(query).then(movi => {
-      setMovies(movi);
-    });
-  }, [query]);
+    const query = searchParams.get('query') ?? '';
+    GetFetchFilmByName(query).then(movi => setMovies(movi));
+  }, [searchParams, query]);
 
-  const hendleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    setSearchParams(searchParams);
+
+    setSearchParams(query !== '' ? { query } : {});
   };
 
   const updateQueryString = evt => {
-    const inp = evt.target.value;
-    if (inp === '') {
-      return setSearchParams({});
-    }
-    setSearchParams({
-      query: inp,
-    });
+    setQuery(evt.target.value);
   };
 
   return (
     <div>
-      <form onSubmit={hendleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input type="text" value={query} onChange={updateQueryString} />
-        <button onClick={() => setSearchParams({})}>Search</button>
+        <button>Search</button>
       </form>
 
       <ul>
         {movies.map(film => {
-          console.log(film);
           return (
             <li key={film.id}>
               <img
